@@ -1,0 +1,39 @@
+<#@ template language="C#" #>
+<#@ output extension="cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)VolumeInfo\bin\Debug\VolumeInfo.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="VolumeInfo" #>
+using System.Diagnostics;
+
+namespace VolumeInfo.Extension
+{
+    public static partial class ExtensionVolumeInfo
+    {
+<#
+        var volumeInfoType = typeof(VolumeInfo);
+        var volumeInfoAssignableTypes = AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(s => s.GetTypes())
+            .Where(p => volumeInfoType.IsAssignableFrom(p))
+            .Where(p => volumeInfoType != p);
+
+        foreach (var volumeAssignableType in volumeInfoAssignableTypes) 
+        {
+            var methodName = volumeAssignableType.Name.Replace("Volume", string.Empty);
+#>
+
+        #region <#= volumeAssignableType.Name #>
+
+        [DebuggerStepThroughAttribute]
+        public static <#= volumeAssignableType.Name #> To<#= methodName #>(this VolumeInfo value)
+        {
+            return new <#= volumeAssignableType.Name #>(value);
+        }
+
+        #endregion
+
+<#
+        }
+#>
+    }
+}

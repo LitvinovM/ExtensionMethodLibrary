@@ -1,0 +1,63 @@
+<#@ template language="C#" #>
+<#@ output extension="cs" #>
+<#
+var valueTypes = new[]
+    {
+        typeof (System.Int32),
+        typeof (System.Int64),
+        typeof (System.UInt32),
+        typeof (System.UInt64),
+        typeof (System.Single),
+        typeof (System.Double)
+    };
+#>
+using System;
+using System.Diagnostics;
+
+namespace ExtensionMethodLibrary.ValueTypes
+{
+    public static partial class ExtensionDuration
+    {
+<#
+        foreach (var valueType in valueTypes) 
+        { 
+#>
+        #region <#= valueType.Name #>
+
+        [DebuggerStepThroughAttribute]
+        public static TimeSpan Day(this <#= valueType #> value)
+        {
+            return TimeSpan.FromDays(value);
+        }
+
+        [DebuggerStepThroughAttribute]
+        public static TimeSpan Hour(this <#= valueType #> value)
+        {
+            return TimeSpan.FromHours(value);
+        }
+
+        [DebuggerStepThroughAttribute]
+        public static TimeSpan Minute(this <#= valueType #> value)
+        {
+            return TimeSpan.FromMinutes(value);
+        }
+
+        [DebuggerStepThroughAttribute]
+        public static TimeSpan Second(this <#= valueType #> value)
+        {
+            return TimeSpan.FromSeconds(value);
+        }
+
+        [DebuggerStepThroughAttribute]
+        public static TimeSpan Millisecond(this <#= valueType #> value)
+        {
+            return TimeSpan.FromMilliseconds(value);
+        }
+
+        #endregion
+
+<#
+        }
+#>
+    }
+}

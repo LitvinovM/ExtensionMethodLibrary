@@ -1,0 +1,52 @@
+<#@ template language="C#" #>
+<#@ output extension="cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)VolumeInfo\bin\Debug\VolumeInfo.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="VolumeInfo" #>
+using System;
+using System.Diagnostics;
+
+namespace VolumeInfo
+{
+<#
+    var volumeInfoType = typeof(VolumeInfo);
+    var volumeInfoAssignableTypes = AppDomain.CurrentDomain.GetAssemblies()
+        .SelectMany(s => s.GetTypes())
+        .Where(p => volumeInfoType.IsAssignableFrom(p))
+        .Where(p => volumeInfoType != p);
+
+    foreach (var volumeAssignableType in volumeInfoAssignableTypes) 
+    {
+#>
+
+    partial class <#= volumeAssignableType.Name #>
+    {
+        public static <#= volumeAssignableType.Name #> operator +(<#= volumeAssignableType.Name #> mainValue, VolumeInfo addedValue)
+        {
+            var amountAddedValueInCurrentMeasurementUnit = addedValue.AmountByte / mainValue.Value;
+
+            return new <#= volumeAssignableType.Name #>(mainValue.Amount + amountAddedValueInCurrentMeasurementUnit);
+        }
+
+        public static <#= volumeAssignableType.Name #> operator -(<#= volumeAssignableType.Name #> mainValue, VolumeInfo addedValue)
+        {
+            var amountAddedValueInCurrentMeasurementUnit = addedValue.AmountByte / mainValue.Value;
+
+            return new <#= volumeAssignableType.Name #>(mainValue.Amount - amountAddedValueInCurrentMeasurementUnit);
+        }
+
+        public static <#= volumeAssignableType.Name #> operator *(<#= volumeAssignableType.Name #> mainValue, double multiplier)
+        {
+            return new <#= volumeAssignableType.Name #>(mainValue.Amount * multiplier);
+        }
+
+        public static <#= volumeAssignableType.Name #> operator /(<#= volumeAssignableType.Name #> mainValue, double divider)
+        {
+            return new <#= volumeAssignableType.Name #>(mainValue.Amount / divider);
+        }
+    }
+<#
+    }
+#>
+}
