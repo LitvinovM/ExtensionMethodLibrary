@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethodLibrary", "ExtensionMethodLibrary\ExtensionMethodLibrary.csproj", "{93006BBD-A2A3-4EC2-8F9D-D395A0418025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethodTest", "ExtensionMethodTest\ExtensionMethodTest.csproj", "{9DE61CC5-FB06-4C79-822F-92CD7B345B5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{C2300B93-195B-46C7-A8D8-004E14A48242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolumeInfo", "VolumeInfo\VolumeInfo.csproj", "{1617C953-50B1-4756-9CED-D99B73F7D0F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolumeInfoCodeGenerator", "VolumeInfoCodeGenerator\VolumeInfoCodeGenerator.csproj", "{3BE8E563-98C5-4ABD-B89D-776B0EE07957}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VolumeInfoSpace", "VolumeInfoSpace", "{5CB0F2FF-18C4-43B1-ABCB-AA45176CA866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolumeInfoTest", "VolumeInfoTest\VolumeInfoTest.csproj", "{E2BDB3EE-36FB-4D74-BBDF-5ED38E804B29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93006BBD-A2A3-4EC2-8F9D-D395A0418025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93006BBD-A2A3-4EC2-8F9D-D395A0418025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93006BBD-A2A3-4EC2-8F9D-D395A0418025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93006BBD-A2A3-4EC2-8F9D-D395A0418025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DE61CC5-FB06-4C79-822F-92CD7B345B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DE61CC5-FB06-4C79-822F-92CD7B345B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DE61CC5-FB06-4C79-822F-92CD7B345B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE61CC5-FB06-4C79-822F-92CD7B345B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1617C953-50B1-4756-9CED-D99B73F7D0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1617C953-50B1-4756-9CED-D99B73F7D0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1617C953-50B1-4756-9CED-D99B73F7D0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1617C953-50B1-4756-9CED-D99B73F7D0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE8E563-98C5-4ABD-B89D-776B0EE07957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE8E563-98C5-4ABD-B89D-776B0EE07957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE8E563-98C5-4ABD-B89D-776B0EE07957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE8E563-98C5-4ABD-B89D-776B0EE07957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2BDB3EE-36FB-4D74-BBDF-5ED38E804B29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2BDB3EE-36FB-4D74-BBDF-5ED38E804B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2BDB3EE-36FB-4D74-BBDF-5ED38E804B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2BDB3EE-36FB-4D74-BBDF-5ED38E804B29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9DE61CC5-FB06-4C79-822F-92CD7B345B5B} = {C2300B93-195B-46C7-A8D8-004E14A48242}
+		{1617C953-50B1-4756-9CED-D99B73F7D0F8} = {5CB0F2FF-18C4-43B1-ABCB-AA45176CA866}
+		{3BE8E563-98C5-4ABD-B89D-776B0EE07957} = {5CB0F2FF-18C4-43B1-ABCB-AA45176CA866}
+		{E2BDB3EE-36FB-4D74-BBDF-5ED38E804B29} = {C2300B93-195B-46C7-A8D8-004E14A48242}
+	EndGlobalSection
+EndGlobal

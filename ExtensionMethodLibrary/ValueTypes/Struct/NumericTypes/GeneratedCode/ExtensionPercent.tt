@@ -1,0 +1,47 @@
+<#@ template language="C#" #>
+<#@ output extension="cs" #>
+<#
+var valueTypes = new[]
+    {
+        typeof (System.Int32),
+        typeof (System.Int64),
+        typeof (System.UInt32),
+        typeof (System.UInt64),
+        typeof (System.Single),
+        typeof (System.Double),
+        typeof (System.Decimal)
+    };
+#>
+using System;
+using System.Diagnostics;
+
+namespace ExtensionMethodLibrary.ValueTypes
+{
+    public static partial class ExtensionPercent
+    {
+<#
+        foreach (var valueType in valueTypes) 
+        {
+            var retyrnType = valueType == typeof (System.Decimal) ? typeof (System.Decimal) : typeof (System.Double);
+#>
+        #region <#= valueType.Name #>
+
+        [DebuggerStepThroughAttribute]
+        public static <#= retyrnType.Name #> Percentage(this <#= valueType.Name #> value, System.Int32 percent)
+        {
+            return percent * 0.01<#=valueType == typeof (System.Decimal) ? "M" : string.Empty#> * value;
+        }
+
+        [DebuggerStepThroughAttribute]
+        public static <#= retyrnType.Name #> Percentage(this <#= valueType.Name #> value, System.Double percent)
+        {
+            return <#=valueType == typeof (System.Decimal) ? "(System.Decimal)" : string.Empty#>percent * 0.01<#=valueType == typeof (System.Decimal) ? "M" : string.Empty#> * value;
+        }
+
+        #endregion
+
+<#
+        }
+#>
+    }
+}
